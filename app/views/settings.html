@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1>Settings</h1>
+</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, eligendi, iure tenetur quibusdam quos qui eveniet assumenda quasi corporis itaque natus odit fugit culpa sunt sed est pariatur adipisci consequatur! Modi, rerum, laboriosam eum rem in dolore distinctio enim reprehenderit voluptas id blanditiis error ex tenetur expedita eius dolores quod!</p>
+<div ng-controller="TabsSettingsCtrl">
+  <tabset>
+    <tab heading="Email">
+      <form role="form">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">File input</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Check me out
+              </label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+      </form>
+    </tab>
+    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+      {{tab.content}}
+    </tab>
+  </tabset>
+</div>
+<script>
+  var TabsSettingsCtrl = function($scope) {
+    $scope.tabs = [{
+      title: "Dynamic Title 1",
+      content: "Dynamic content 1"
+    }, {
+      title: "Dynamic Title 2",
+      content: "Dynamic content 2",
+      disabled: true
+    }];
+
+    $scope.navType = 'pills';
+  };
+</script>

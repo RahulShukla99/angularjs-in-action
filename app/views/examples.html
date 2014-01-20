@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h1>Examples</h1>
+</div>
+<p>Ipsum, animi, corporis, odio minus ducimus commodi nostrum perspiciatis error soluta repellendus nesciunt ea ipsa quos illo dolore distinctio cumque iure. Recusandae asperiores delectus ipsa accusamus. Fuga, vel, enim, expedita vitae numquam voluptates error id velit dolore ad illo eaque quidem non?</p>
+<p>Quam, alias, iure labore accusamus expedita itaque illo fugiat molestiae reprehenderit molestias!</p>
+<h4>Data Binding</h4>
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Type a name..." ng-model="name">
+        <p class="help-block">Output is: {{ name || 'Name' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<h4>Controllers</h4>
+<div class="well well-sm" ng-controller="ListCtrl">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input type="search" class="form-control" placeholder="Search here..." ng-model="search">
+      </div>
+      <ul class="list-unstyled">
+        <li ng-repeat="car in cars | filter:search">{{ car }}</li>
+      </ul>
+      <script>
+        var ListCtrl = function($scope) {
+          $scope.cars = ['Ferrari', 'Ford Fusion', 'Honda Accord', 'Mazda 6', 'Volkswagen Passat', 'Chevrolet Impala', 'Chrysler 300', 'Kia Cadenza', 'Toyota Avalon'];
+        }
+      </script>
+    </div>
+  </div>
+</div>
+<h4>Directives</h4>
+<div class="well well-sm" ng-controller="DirectivesCtrl">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>ng-show</label>
+        <br>
+        <button class="btn btn-success" ng-click="show">Click to show</button>
+      </div>
+      <div ng-show="show">Showing a Text</div>
+      <div class="form-group">
+        <label>ng-hide</label>
+        <br>
+        <button class="btn btn-warning" ng-click="hide">Click to hide</button>
+      </div>
+      <div ng-hide="hide">Hidding a Text</div>
+      <script>
+        var DirectivesCtrl = function() {
+
+        }
+      </script>
+    </div>
+  </div>
+</div>
