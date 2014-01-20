@@ -66,6 +66,17 @@ p {
   border: none;
 }
 
+.dropdown-menu {
+  > li {
+    > a {
+      &:hover, &:focus {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+}
+
 /* Forms */
 .form-control {
   border-radius: 2px;

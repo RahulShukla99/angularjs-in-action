@@ -71,6 +71,14 @@ app.config(['$routeProvider',
         templateUrl: 'views/examples.html',
         controller: 'ExamplesCtrl'
       })
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/project', {
+        templateUrl: 'views/project.html',
+        controller: 'ProjectCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -80,55 +88,3 @@ app.config(['$routeProvider',
     //   .hashPrefix('!');
   }
 ]);
-
-app.directive('activeLink', function($location) {
-  var link = function(scope, element) {
-    scope.$watch(function() {
-        return $location.path();
-      },
-      function(path) {
-        var url = element.find('a').attr('href');
-        if (url) {
-          url = url.substring(1);
-        }
-
-        if (path === url) {
-          element.addClass('active');
-          element.append('<span class="selected"></span>');
-        } else {
-          element.removeClass('active');
-          element.find('span.selected').remove();
-        }
-      });
-  };
-
-  return {
-    restrict: 'A',
-    link: link
-  };
-});
-
-app.directive('toggleAside', ['$cookieStore', function($cookieStore) {
-  var body = angular.element('body');
-
-  var link = function(scope, element) {
-    element.on('click', 'a', function(e) {
-      e.preventDefault();
-
-      body.toggleClass('mini');
-
-      scope.$apply(function() {
-        $cookieStore.put('toggle', body.hasClass('mini'));
-      });
-    });
-  };
-
-  if ($cookieStore.get('toggle') === true) {
-    body.addClass('mini');
-  }
-
-  return {
-    restrict: 'A',
-    link: link
-  };
-}]);

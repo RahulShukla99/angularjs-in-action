@@ -1,3 +1,3 @@
-require(['app'], function() {
+// require(['app'], function() {
 
-});
+// });
