@@ -12,4 +12,4 @@ Introduction course for AngularJS.
 
 ## Requirements
 
-NodeJS + npm
+* NodeJS
